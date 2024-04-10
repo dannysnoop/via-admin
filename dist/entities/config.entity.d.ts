@@ -1,0 +1,38 @@
+import { ALERT_CONFIG, SHOW_PRODUCT_TYPE } from '../helper/constant';
+export declare class ConfigEntity {
+    id: number;
+    interfaceType: number;
+    showProductType: SHOW_PRODUCT_TYPE;
+    alertType: ALERT_CONFIG;
+    isShowHistoryBuySell: boolean;
+    isShowRecap: boolean;
+    loginGoogle: boolean;
+    loginTelegram: boolean;
+    limitIpOnDomain: number;
+    timeCloseAlert: number;
+    favicon: string;
+    avatar: string;
+    logo: string;
+    nameWebsite: string;
+    titleWebsite: string;
+    descriptionWebsite: string;
+    adminEmail: string;
+    affiliate: number;
+    promotionNumber: number;
+    minBalanceToTakePromotion: number;
+    isShowACB: boolean;
+    ACB_AccountNumber: string;
+    ACB_AccountName: string;
+    ACB_AccountNameApp: string;
+    ACB_AccountPass: string;
+    SyntaxTransfer: string;
+    zaloSupportPhoneNumber: string;
+    AlertLineRunning: string;
+    AlertTopPage: string;
+    TokenBM: string;
+    warrantyPolicy: string;
+    warrantyDenied: string;
+    contentTXTDownload: string;
+    GoogleAnalyticsCode: string;
+    linkImageBank: string;
+}

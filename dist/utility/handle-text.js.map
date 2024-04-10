@@ -1,0 +1,1 @@
+{"version":3,"file":"handle-text.js","sourceRoot":"","sources":["../../utility/handle-text.ts"],"names":[],"mappings":";;;AACA,iCAAiC;AAC1B,MAAM,UAAU,GAAG,CAAC,KAAe,EAAU,EAAE;IACpD,OAAO,gBAAgB,KAAK,CAAC,EAAE,eAAe,KAAK,CAAC,WAAW,eAC7D,KAAK,CAAC,QACR,eAAe,MAAM,CAAC,CAAC,KAAK,CAAC,WAAW,GAAG,IAAI,CAAC,CAAC,MAAM,CACrD,qBAAqB,CACtB,IAAI,CAAC;AACR,CAAC,CAAC;AANW,QAAA,UAAU,cAMrB"}
