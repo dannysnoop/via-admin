@@ -16,9 +16,32 @@ const category_repository_1 = require("./category.repository");
 const class_transformer_1 = require("class-transformer");
 const categories_entity_1 = require("../../entities/categories.entity");
 const message_1 = require("../../helper/message");
+const typeorm_1 = require("typeorm");
 let CategoryService = class CategoryService {
     constructor(repository) {
         this.repository = repository;
+    }
+    searchProductThoughCategory(productName) {
+        return this.repository.find({
+            where: { products: { title: (0, typeorm_1.ILike)(`%${productName || ''}%`) } },
+            relations: ['products', 'products.productDetails'],
+            select: {
+                title: true,
+                order: true,
+                id: true,
+                icon: true,
+                isShow: true,
+                products: {
+                    id: true,
+                    title: true,
+                    price: true,
+                    description: true,
+                    subDescription: true,
+                    isShow: true,
+                    productDetails: { id: true, isSale: true },
+                },
+            },
+        });
     }
     async getCategoryById(id) {
         const data = await this.repository.findOne({
@@ -54,12 +77,24 @@ let CategoryService = class CategoryService {
     async getAllCategoryForClient() {
         const [categories, total] = await this.repository.findAndCount({
             where: { isShow: true },
+            relations: ['products.productDetails'],
             select: {
                 title: true,
                 order: true,
                 id: true,
                 icon: true,
-                products: true,
+                products: {
+                    id: true,
+                    description: true,
+                    subDescription: true,
+                    isShow: true,
+                    title: true,
+                    price: true,
+                    productDetails: {
+                        id: true,
+                        isSale: true,
+                    },
+                },
             },
             order: { order: 'DESC' },
         });

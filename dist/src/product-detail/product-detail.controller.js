@@ -27,6 +27,9 @@ let ProductDetailController = class ProductDetailController {
     getProductDetail(params) {
         return this.IProductDetailService.getProductDetail(params);
     }
+    checkLiveUid(params) {
+        return this.IProductDetailService.checkLiveUid(params.uid);
+    }
     getHistoryTransaction(params) {
         return this.IProductDetailService.getHistoryTransaction(params);
     }
@@ -58,6 +61,14 @@ __decorate([
     __metadata("design:paramtypes", [product_detail_dto_1.ProductSearchRequest]),
     __metadata("design:returntype", void 0)
 ], ProductDetailController.prototype, "getProductDetail", null);
+__decorate([
+    (0, common_1.Get)('check-live-uid'),
+    (0, swagger_1.ApiQuery)({ name: 'uid', required: false, type: String }),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [product_detail_dto_1.UidRequest]),
+    __metadata("design:returntype", void 0)
+], ProductDetailController.prototype, "checkLiveUid", null);
 __decorate([
     (0, common_1.Get)('history-transaction'),
     (0, swagger_1.ApiQuery)({ name: 'take', required: false, type: Number }),

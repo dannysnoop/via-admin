@@ -4,6 +4,7 @@ import { CategoryRepository } from './category.repository';
 export declare class CategoryService implements ICategoryService {
     private repository;
     constructor(repository: CategoryRepository);
+    searchProductThoughCategory(productName: string): Promise<CategoryDto[]>;
     getCategoryById(id: any): Promise<CategoryDto>;
     getAllCategory(): Promise<CategoryResponse>;
     getAllCategoryForClient(): Promise<CategoryResponse>;

@@ -23,6 +23,7 @@ const lodash_1 = require("lodash");
 const class_transformer_1 = require("class-transformer");
 const typeorm_2 = require("@nestjs/typeorm");
 const history_transaction_entity_1 = require("../../entities/history-transaction.entity");
+const check_live_uid_1 = require("../../utility/check-live-uid");
 let ProductDetailService = class ProductDetailService {
     constructor(repository, IProductService, historyTransactionEntityRepository) {
         this.repository = repository;
@@ -40,6 +41,9 @@ let ProductDetailService = class ProductDetailService {
             }
             await this.repository.save(productDetails);
         };
+    }
+    async checkLiveUid(uid) {
+        return (0, check_live_uid_1.checkUserActiveStatus)(uid);
     }
     async getProductDetailById(id) {
         const data = await this.repository.findOne({
@@ -68,8 +72,9 @@ let ProductDetailService = class ProductDetailService {
         if (!product) {
             throw new common_1.HttpException(message_1.COMMON_MESSAGE.PRODUCT_NOT_FOUND, common_1.HttpStatus.FORBIDDEN);
         }
+        const infoLst = [...new Set(lstInfo)];
         const lstProductDetailExisted = await this.repository.find({
-            where: { info: (0, typeorm_1.In)(lstInfo) },
+            where: { info: (0, typeorm_1.In)(infoLst) },
             select: { info: true, id: true },
         });
         const lstInfoExisted = lstProductDetailExisted.map((z) => z.info);
@@ -96,7 +101,7 @@ let ProductDetailService = class ProductDetailService {
         const { q, take = 10, page = 1 } = query;
         const skip = (page - 1) * take || 0;
         const [data, totalCount] = await this.repository.findAndCount({
-            where: { uid: (0, typeorm_1.ILike)(`%${q || ''}%`), isShow: true },
+            where: { uid: (0, typeorm_1.ILike)(`%${q || ''}%`), isShow: true, isSale: false },
             relations: ['product'],
             select: { product: { title: true } },
             take,
@@ -118,9 +123,7 @@ let ProductDetailService = class ProductDetailService {
         return this.repository.save(dataProductSave);
     }
     async removeProductDetail(id) {
-        const productDetail = await this.repository.findOneByOrFail({ id });
-        productDetail.isShow = false;
-        return this.repository.save(productDetail);
+        await this.repository.delete(id);
     }
 };
 exports.ProductDetailService = ProductDetailService;

@@ -5,4 +5,5 @@ export interface ICategoryService {
     updateCategory(id: number, params: CategoryUpdateRequest): Promise<CategoryDto>;
     getCategoryById(id: number): Promise<CategoryDto>;
     getAllCategoryForClient(): Promise<CategoryResponse>;
+    searchProductThoughCategory(productName: string): Promise<CategoryDto[]>;
 }

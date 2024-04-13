@@ -37,3 +37,6 @@ export declare class ProductSearchRequest {
     take: number;
     page: number;
 }
+export declare class UidRequest {
+    uid: number;
+}

@@ -10,4 +10,5 @@ export interface IProductDetailService {
     saleProduct(product: ProductEntity, quantity: number, order: OrderEntity): Promise<any>;
     getHistoryTransaction(pagination: Pagination): Promise<HistoryTransactionResponse>;
     getProductDetailById(id: number): Promise<ProductDetailDto>;
+    checkLiveUid(uid: number): Promise<boolean>;
 }

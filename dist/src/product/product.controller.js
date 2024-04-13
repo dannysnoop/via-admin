@@ -16,6 +16,7 @@ exports.ProductController = void 0;
 const common_1 = require("@nestjs/common");
 const product_dto_1 = require("./DTO/product.dto");
 const swagger_1 = require("@nestjs/swagger");
+const auth_guard_1 = require("../../guards/auth.guard");
 let ProductController = class ProductController {
     constructor(IProductService) {
         this.IProductService = IProductService;
@@ -98,6 +99,8 @@ __decorate([
 exports.ProductController = ProductController = __decorate([
     (0, common_1.Controller)('api/product'),
     (0, swagger_1.ApiTags)('product'),
+    (0, swagger_1.ApiBearerAuth)(),
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
     __param(0, (0, common_1.Inject)('IProductService')),
     __metadata("design:paramtypes", [Object])
 ], ProductController);

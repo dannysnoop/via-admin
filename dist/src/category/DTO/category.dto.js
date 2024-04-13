@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CategoryUpdateRequest = exports.CategoryQueryRequest = exports.CategoryCreateRequest = exports.CategoryResponse = exports.CategoryDto = void 0;
+exports.CategoryUpdateRequest = exports.CategorySearchQueryRequest = exports.CategoryQueryRequest = exports.CategoryCreateRequest = exports.CategoryResponse = exports.CategoryDto = void 0;
 const user_dto_1 = require("../../user/DTO/user.dto");
 const swagger_1 = require("@nestjs/swagger");
 class CategoryDto {
@@ -40,6 +40,9 @@ __decorate([
 class CategoryQueryRequest {
 }
 exports.CategoryQueryRequest = CategoryQueryRequest;
+class CategorySearchQueryRequest {
+}
+exports.CategorySearchQueryRequest = CategorySearchQueryRequest;
 class CategoryUpdateRequest extends CategoryCreateRequest {
 }
 exports.CategoryUpdateRequest = CategoryUpdateRequest;

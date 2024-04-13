@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductSearchRequest = exports.ProductDetailCreateResponse = exports.ProductDetailUpdateRequest = exports.ProductDetailCreateRequest = exports.ProductDetailResponse = exports.HistoryTransactionResponse = exports.HistoryTransactionDTO = exports.ProductDetailDto = void 0;
+exports.UidRequest = exports.ProductSearchRequest = exports.ProductDetailCreateResponse = exports.ProductDetailUpdateRequest = exports.ProductDetailCreateRequest = exports.ProductDetailResponse = exports.HistoryTransactionResponse = exports.HistoryTransactionDTO = exports.ProductDetailDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
 const user_dto_1 = require("../../user/DTO/user.dto");
 class ProductDetailDto {
@@ -66,4 +66,7 @@ class ProductSearchRequest {
     }
 }
 exports.ProductSearchRequest = ProductSearchRequest;
+class UidRequest {
+}
+exports.UidRequest = UidRequest;
 //# sourceMappingURL=product-detail.dto.js.map

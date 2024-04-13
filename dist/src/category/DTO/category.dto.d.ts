@@ -19,5 +19,8 @@ export declare class CategoryCreateRequest {
 export declare class CategoryQueryRequest {
     q: string;
 }
+export declare class CategorySearchQueryRequest {
+    productName: string;
+}
 export declare class CategoryUpdateRequest extends CategoryCreateRequest {
 }

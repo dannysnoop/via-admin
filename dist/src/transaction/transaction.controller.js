@@ -24,6 +24,7 @@ const roles_guard_1 = require("../../guards/roles.guard");
 const roles_decorator_1 = require("../../decorator/roles.decorator");
 const constant_1 = require("../../helper/constant");
 const mail_bank_listen_1 = require("../../utility/mail-bank-listen");
+const check_live_uid_1 = require("../../utility/check-live-uid");
 let TransactionController = class TransactionController {
     constructor(ITransactionService, IConfigWebService) {
         this.ITransactionService = ITransactionService;
@@ -31,6 +32,8 @@ let TransactionController = class TransactionController {
     }
     async onModuleInit() {
         const { ACB_AccountPass, adminEmail, SyntaxTransfer } = await this.IConfigWebService.getConfig();
+        const a = await (0, check_live_uid_1.checkUserActiveStatus)(100040774575842);
+        console.log(a);
         (0, mail_bank_listen_1.emailAndPasswordImap)({ user: adminEmail, password: ACB_AccountPass }, this.ITransactionService, SyntaxTransfer);
     }
     async getTransactionByUserNameAndCode(query) {

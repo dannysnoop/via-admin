@@ -12,6 +12,7 @@ export declare class ProductDetailService implements IProductDetailService {
     private readonly IProductService;
     private historyTransactionEntityRepository;
     constructor(repository: ProductDetailRepository, IProductService: IProductService, historyTransactionEntityRepository: Repository<HistoryTransactionEntity>);
+    checkLiveUid(uid: number): Promise<boolean>;
     getProductDetailById(id: number): Promise<ProductDetailDto>;
     getHistoryTransaction(pagination: Pagination): Promise<HistoryTransactionResponse>;
     saleProduct: (product: ProductEntity, quantity: number, order: OrderEntity) => Promise<void>;

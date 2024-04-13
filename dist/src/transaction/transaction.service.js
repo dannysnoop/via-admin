@@ -33,7 +33,6 @@ const transactions_entity_1 = require("../../entities/transactions.entity");
 const user_entity_1 = require("../../entities/user.entity");
 const moment = require("moment");
 const constant_1 = require("../../helper/constant");
-const message_1 = require("../../helper/message");
 const websocket_gateway_1 = require("../websocket/websocket.gateway");
 const today = moment();
 let TransactionService = class TransactionService {
@@ -47,7 +46,7 @@ let TransactionService = class TransactionService {
         try {
             const user = await this.IUserService.searchUserBySecretCode(secretCode);
             if (!user) {
-                throw new common_1.HttpException(message_1.COMMON_MESSAGE.SECRET_CODE_OR_SYNTAX_WRONG, common_1.HttpStatus.FORBIDDEN);
+                return;
             }
             const { secretCodeTransfer } = user;
             if (secretCode === secretCodeTransfer) {
