@@ -17,7 +17,7 @@ let PostEntity = class PostEntity extends base_entity_1.BaseEntity {
 };
 exports.PostEntity = PostEntity;
 __decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)("increment"),
     __metadata("design:type", Number)
 ], PostEntity.prototype, "id", void 0);
 __decorate([

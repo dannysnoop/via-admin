@@ -17,7 +17,7 @@ let HistoryTransactionEntity = class HistoryTransactionEntity extends base_entit
 };
 exports.HistoryTransactionEntity = HistoryTransactionEntity;
 __decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)("increment"),
     __metadata("design:type", Number)
 ], HistoryTransactionEntity.prototype, "id", void 0);
 __decorate([

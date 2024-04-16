@@ -20,7 +20,7 @@ let OrderEntity = class OrderEntity extends base_entity_1.BaseEntity {
 };
 exports.OrderEntity = OrderEntity;
 __decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)("increment"),
     __metadata("design:type", Number)
 ], OrderEntity.prototype, "id", void 0);
 __decorate([
